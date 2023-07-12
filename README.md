@@ -1,5 +1,7 @@
 # Ejemplo Conversor - Signals Angular
 
+![Angular Signals Completo](https://github.com/nicovillamonte/eg-conversor-signals-angular/assets/64659720/5bc83628-8e8d-467a-bde8-c673a7336cd5)
+
 En este ejemplo se muestra como crear un conversor de millas a kilometros utilizando el framework Angular en su version 16, en la que podemos aplicar los `signals`.
 
 ### ZoneJS
@@ -170,6 +172,11 @@ En este caso, cuando se borre un item del signal pasado al componente hijo en el
 A simple vista el `signal` no cambia nada en la interfaz grafica. Pero hace que la misma sea mucho mas eficiente en la deteccion de cambios, lo que se traduce en un mejor rendimiento de la aplicacion en comparacion con `ZoneJS`.
 
 Anteriormente existia la posibilidad de hacer algo parecido con `BehaviorSubject` de `RxJS`, pero no era tan sencillo de implementar como lo es con los `signals`, ademas de que utiliza observables, lo que nos obliga a ser cuidadosos con las suscripciones y desuscripciones de los mismos.
+
+En este ejemplo se ven todos los casos de uso posibles de signals:
+
+![Ejemplo Signals Angular](https://github.com/nicovillamonte/eg-conversor-signals-angular/assets/64659720/3ec59773-db17-44d6-a4ac-82fdc98b77bf)
+
 
 ### Fuente
 [Introducción a Signals en Angular 16 - Rubén Yáñez Agelán](https://www.adictosaltrabajo.com/2023/06/23/introduccion-a-signals-en-angular-16/)
