@@ -32,19 +32,19 @@ El proceso de crear un signal es muy simple. Solo debemos asignar a una variable
 La forma de obtener el valor de un signal tambien es muy sencilla, solamente hay que llamar a millas como si fuera un getter.
 
 ``` typescript
-  millas()
+millas()
 ```
 
 Por ejemplo, podemos utilizarlo en el HTML de la siguiente forma:
 
 ``` html
-  <div class="unidad">millas()</div>
+<div class="unidad">millas()</div>
 ```
 
 Desde aqui vamos a poder manejarlo de la misma manera que haciamos con otros parametros de los componentes. Por ejemplo aplicandoles pipes.
 
 ``` html
-  <div class="unidad">{{millas() | number: '1.1-2':'es-ES'}}</div>
+<div class="unidad">{{millas() | number: '1.1-2':'es-ES'}}</div>
 ```
 
 ## Emitir un signal (Producers)
@@ -56,7 +56,7 @@ Para emitir un signal, debemos hacer un cambio en el valor del mismo. Para esto 
 Para setear un valor _x_ en el signal, debemos llamar a la funcion `set` del mismo y pasarle como parametro el nuevo valor.
 
 ``` typescript
-  millas.set(53);
+millas.set(53);
 ```
 
 ### Update
@@ -64,7 +64,7 @@ Para setear un valor _x_ en el signal, debemos llamar a la funcion `set` del mis
 Para actualizar un valor _x_ en el signal, debemos llamar a la funcion `update` del mismo y pasarle como parametro una funcion que recibe como parametro el valor actual del signal y retorna el nuevo valor.
 
 ``` typescript
-  millas.update((x) => x + 1);
+millas.update((x) => x + 1);
 ```
 
 ### Mutate
@@ -72,11 +72,11 @@ Para actualizar un valor _x_ en el signal, debemos llamar a la funcion `update` 
 En el caso de que el valor del signal sea un objeto o un array, es decir, estados mutables, podemos utilizar la funcion `mutate` para modificar el valor interno del mismo.
 
 ``` typescript
-  listaConversiones = signal<Conversion[]>([]);
+listaConversiones = signal<Conversion[]>([]);
 
-  this.listaConversiones.mutate((lista) =>
-    lista.push({ millas, kilometros })
-  );
+this.listaConversiones.mutate((lista) =>
+  lista.push({ millas, kilometros })
+);
 ```
 
 ## Consumir un signal (Consumers)
@@ -88,14 +88,14 @@ Ademas del `setter` que se utiliza en los signals para consumirlos. Existen otra
 La funcion `computed` nos permite crear un signal que depende de otros signals. Es decir, que cuando alguno de los signals que dependen de el cambia, el signal `computed` tambien cambia.
 
 ``` typescript
-  kilometros = computed(() => millas() * 1.60934);
+kilometros = computed(() => millas() * 1.60934);
 ``` 
 En este caso, cuando cambie el signal de millas, tambien va a cambiar el signal de kilometros utilizando el getter de millas y aplicandole la formula de conversion.
 
 Podemos hacer cualquier tipo de operacion que nos devuelva un valor dentro de la funcion de computed. Lo mas importante de todo esto es que podemos utilizar un computed como condicional que solamente vamos a obtener una emicion de su valor cuando esa condicion cambie, por ejemplo:
 
 ``` typescript
-  valido = computed(() => millas() > 0);
+valido = computed(() => millas() > 0);
 ```
 
 En este caso estamos haciendo una validacion de que el valor de millas sea mayor a 0. Si esto se cumple, el signal `valido` va a emitir un valor `true`, en caso contrario va a emitir un valor `false`. Pero mientras no se cumpla, aunque pasemos por los valores -5, -4, -3, -2 y -1, habiendo cambiado el valor 4 veces, el signal no va a emitir un cambio hasta que el valor de millas sea mayor a 0, recien ahi vamos a obtener un cambio en el signal `valido` y lo vamos a poder consumir. Esto tiene un alto potencial.
@@ -105,9 +105,9 @@ En este caso estamos haciendo una validacion de que el valor de millas sea mayor
 La funcion `effect` se llama siempre en el constructor del componente y le podemos definir una funcion en su interior. Esa funcion se va a ejecutar cada vez que se produzca un cambio en alguno de los signals que se encuentren dentro de la misma.
 
 ``` typescript
-  effect(() => {
-    console.log(millas());
-  });
+effect(() => {
+  console.log(millas());
+});
 ```
 
 En este caso cada vez que se cambien las millas se realizara un `console.log` con el nuevo valor.
@@ -115,14 +115,14 @@ En este caso cada vez que se cambien las millas se realizara un `console.log` co
 Con esto podemos probar lo que deciamos del computed anteriormente. Vamos a hacer un computed signal que nos emita una señal cuando las millas cambien de decimal a entero y viceversa.
 
 ``` typescript
-  isDecimal = computed(() => Number(this.millas().toFixed(2)) % 1 !== 0);
+isDecimal = computed(() => Number(this.millas().toFixed(2)) % 1 !== 0);
 
-  constructor() {
-    effect(() => {
-      // Veremos como esto se llama solamente cuando cambia el valor de isDecimal
-      console.log(this.isDecimal() ? 'Es Decimal' : 'Es Entero');
-    });
-  }
+constructor() {
+  effect(() => {
+    // Veremos como esto se llama solamente cuando cambia el valor de isDecimal
+    console.log(this.isDecimal() ? 'Es Decimal' : 'Es Entero');
+  });
+}
 ```
 
 Ese console.log se va a ejecutar solamente cuando cambie el valor de isDecimal, es decir, cuando las millas cambien de decimal a entero o viceversa.
