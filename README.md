@@ -24,7 +24,7 @@ Los signals se basan en el concepto de `Producers` y `Consumers`. En el que los 
 El proceso de crear un signal es muy simple. Solo debemos asignar a una variable el resultado de la funcion `signal` y pasarle como parametro el valor inicial del mismo.
 
 ``` typescript
-  millas = signal(0);
+millas = signal(0);
 ```
 
 ## Consumir un signal
