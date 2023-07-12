@@ -1,0 +1,54 @@
+div {
+  margin-top: 2rem;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: #777;
+    font-size: 18px;
+  }
+
+  .table {
+    width: 50%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .action-column {
+      text-align: right;
+
+      .delete {
+        color: #f44336;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .fa-trash {
+      color: #f44336;
+      cursor: pointer;
+    }
+
+    .fa-trash:hover {
+      color: #d32f2f;
+    }
+  }
+}

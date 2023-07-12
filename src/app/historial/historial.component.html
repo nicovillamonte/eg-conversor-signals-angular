@@ -1,0 +1,26 @@
+<div *ngIf="listaConversiones().length == 0">
+  <p>No hay conversiones guardadas aun </p>
+</div>
+
+<div *ngIf="listaConversiones().length != 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Millas</th>
+        <th>Kilometros</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conversacion of listaConversiones(); let i = index">
+        <td>{{conversacion.millas | number: '1.1-2':'es-ES'}}</td>
+        <td>{{conversacion.kilometros | number: '1.1-2':'es-ES'}}</td>
+        <td class="action-column">
+          <span class="material-symbols-outlined delete" (click)="delete(i)">
+            delete
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
