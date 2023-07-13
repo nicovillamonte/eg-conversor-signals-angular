@@ -81,7 +81,7 @@ this.listaConversiones.mutate((lista) =>
 
 ## Consumir un signal (Consumers)
 
-Ademas del `setter` que se utiliza en los signals para consumirlos. Existen otras dos formas diferentes de consumir un cambio emitido con alguno de los 3 metodos anteriores.
+Ademas del `getter` que se utiliza en los signals para consumirlos. Existen otras dos formas diferentes de consumir un cambio emitido con alguno de los 3 metodos anteriores.
 
 ### Computed
 
