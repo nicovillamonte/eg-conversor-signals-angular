@@ -1,5 +1,5 @@
-import { Component, Input, Signal, signal, effect } from '@angular/core';
-import { Conversion } from 'src/DTO/conversion';
+import { Component, Input, signal } from '@angular/core'
+import { Conversion } from 'src/DTO/conversion'
 
 @Component({
   selector: 'app-historial',
@@ -7,9 +7,9 @@ import { Conversion } from 'src/DTO/conversion';
   styleUrls: ['./historial.component.scss'],
 })
 export class HistorialComponent {
-  @Input('conversaciones') listaConversiones = signal<Conversion[]>([]);
+  @Input('conversaciones') listaConversiones = signal<Conversion[]>([])
 
   delete(index: number) {
-    this.listaConversiones.mutate((lista) => lista.splice(index, 1));
+    this.listaConversiones.mutate((lista) => lista.splice(index, 1))
   }
 }
