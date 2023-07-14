@@ -1,14 +1,14 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { LOCALE_ID, NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component'
+import { FormsModule } from '@angular/forms'
 
-import { registerLocaleData } from '@angular/common';
-import localeEs from '@angular/common/locales/es';
-import { HistorialComponent } from './historial/historial.component';
+import { registerLocaleData } from '@angular/common'
+import localeEs from '@angular/common/locales/es'
+import { HistorialComponent } from './historial/historial.component'
 
-registerLocaleData(localeEs);
+registerLocaleData(localeEs)
 
 @NgModule({
   declarations: [AppComponent, HistorialComponent],
