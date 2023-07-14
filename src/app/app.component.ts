@@ -1,4 +1,4 @@
-import { Component, signal, computed, Signal, effect } from '@angular/core';
+import { Component, signal, computed, effect } from '@angular/core';
 import { Conversion } from 'src/DTO/conversion';
 
 @Component({
