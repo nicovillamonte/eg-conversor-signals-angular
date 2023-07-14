@@ -10,19 +10,19 @@ export class AppComponent {
   title = 'eg-conversor-signals-angular';
   millasInput: string = '';
 
-  // Parametros de conversion
+  // Parámetros de conversión
   millas = signal(0);
   kilometros = computed(() => this.millas() * 1.60934);
 
-  // Parametros de referencia
-  isDecimal = computed(() => Number(this.millas().toFixed(2)) % 1 !== 0);
+  // Parámetros de referencia
+  isDecimal = computed(() => !Number.isInteger(this.millas()));
 
   // Lista de conversiones guardadas
   listaConversiones = signal<Conversion[]>([]);
 
   constructor() {
     effect(() => {
-      // Veremos como esto se llama solamente cuando cambia el valor de isDecimal
+      // Veremos cómo esto se llama solamente cuando cambia el valor de isDecimal
       console.log(this.isDecimal() ? 'Es Decimal' : 'Es Entero');
     });
 
@@ -36,7 +36,7 @@ export class AppComponent {
   }
 
   set(millas: number) {
-    if (!this.validateInput()) throw new Error('Valor no valido');
+    if (!this.validateInput()) throw new Error('Valor no válido');
     this.millas.set(millas);
   }
 
@@ -52,6 +52,11 @@ export class AppComponent {
     this.listaConversiones.mutate((lista) =>
       lista.push({ millas, kilometros })
     );
+  }
+
+  resetear() {
+    this.set(0); 
+    this.millasInput = '0';
   }
 
   // --- Validaciones

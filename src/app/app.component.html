@@ -10,14 +10,14 @@
         <input type="text" name="millasInput" value="0" [(ngModel)]="millasInput" [ngClass]="{'error': !validateInput()}">
 
         <button (click)="set(+millasInput.replace(',','.'))" class="primary-button">Convertir</button>
-        <button (click)="set(0); millasInput = '0'" class="secondary-button">Resetear</button>
+        <button (click)="resetear()" class="secondary-button">Resetear</button>
       </div>
 
       <div class="conversor-container">
         <div class="millas-container unit-box">
           <div class="unit-box-header">
             <label>Millas</label>
-            <div [ngClass]="{'red-bg': isDecimal(), 'green-bg': !isDecimal()}">{{isDecimal() ? 'Decimal' : 'Entero'}}</div>
+            <div [ngClass]="{'decimal-bg': isDecimal(), 'integer-bg': !isDecimal()}">{{isDecimal() ? 'Decimal' : 'Entero'}}</div>
           </div>
 
           <div class="unit-box-editable">

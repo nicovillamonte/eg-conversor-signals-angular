@@ -89,8 +89,21 @@
               padding: 0.2rem;
               border-radius: 0.2rem;
             }
+
+            .decimal-bg, .integer-bg {
+              padding: 0.5em;
+            }
+              
           }
 
+          .decimal-bg {
+            background-color: rgb(241, 241, 115);
+          }
+          
+          .integer-bg {
+            background-color: lightgreen;
+          }
+          
           .unit-box-editable {
             display: flex;
             align-items: center;
@@ -113,6 +126,7 @@
               min-width: 20px;
               font-size: 2.5rem;
             }
+
           }
         }
       }
@@ -135,12 +149,4 @@
       margin-right: 1.5rem;
     }
   }
-}
-
-.red-bg {
-  background-color: rgb(246, 250, 49);
-}
-
-.green-bg {
-  background-color: rgb(13, 236, 13);
 }
