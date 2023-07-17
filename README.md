@@ -1,5 +1,7 @@
 # Ejemplo Conversor - Signals Angular
 
+**IMPORTANTE**: Este repositorio queda deprecado, el ejemplo se sigue desarrollando en [este repositorio de uqbar](https://github.com/uqbar-project/eg-conversor-signals-angular)
+
 ![Angular Signals Completo](https://github.com/nicovillamonte/eg-conversor-signals-angular/assets/64659720/5bc83628-8e8d-467a-bde8-c673a7336cd5)
 
 En este ejemplo se muestra como crear un conversor de millas a kilometros utilizando el framework Angular en su version 16, en la que podemos aplicar los `signals`.
